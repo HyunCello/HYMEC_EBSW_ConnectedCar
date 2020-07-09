@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>
+            Connected Window
+        </title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="">
+        <script src="https://cdn.letsee.io/webar/letsee-0.9.18.min.js"></script>
+        <style media="place" type="text/css">
+            #container {
+              -letsee-target: uri('letsee-marker.json');
+            }
+          </style>
+    </head>
+
+    <body>
+        <!--[if lt IE 7]>
+            <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="#">upgrade your browser</a> to improve your experience.</p>
+        <![endif]-->
+        <h1>HI</h1>
+        <div id="container"><h1>Hello, world!</h1></div>
+        <script>
+            const config = {
+              "appKey": "5a9b7e587a7390ed6a71d7e5c14b1ad0ac69c3e30f11a47ba6185581a505b6b2",
+              "trackerType": "IMAGE",
+            };
+            const letsee = new Letsee(config);
+          </script>
+    </body>
+</html>
