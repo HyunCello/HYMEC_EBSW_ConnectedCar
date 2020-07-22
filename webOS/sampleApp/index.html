@@ -39,10 +39,37 @@
         </div>
         <a id="auctions1"><img src="img/menu.png"></a>
         <a id="auctions2" style="display:none"><img src="img/menu.png"></a>
+
+        <!--##############################################################################-->
         <div>
             <h1 id="txt_msg">Hello, Web Application!!</h1>
         </div>
+        <div style="width: 80%;height: 50%;background-color: burlywood;text-align: center;">
+            camera test
+            <video id="player" controls autoplay></video>
+            <button id="capture">Capture</button>
+            <canvas id="snapshot" width=320 height=240></canvas>
+            <script>
+                var player = document.getElementById('player');
+                var snapshotCanvas = document.getElementById('snapshot');
+                var captureButton = document.getElementById('capture');
 
+                var handleSuccess = function (stream) {
+                    // Attach the video stream to the video element and autoplay.
+                    player.srcObject = stream;
+                };
+
+                captureButton.addEventListener('click', function () {
+                    var context = snapshot.getContext('2d');
+                    // Draw the video frame to the canvas.
+                    context.drawImage(player, 0, 0, snapshotCanvas.width,
+                        snapshotCanvas.height);
+                });
+
+                navigator.mediaDevices.getUserMedia({ video: true })
+                    .then(handleSuccess);
+            </script>
+        </div>
     </div>
 </body>
 
