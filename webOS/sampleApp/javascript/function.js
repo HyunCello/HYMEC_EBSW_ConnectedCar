@@ -1,13 +1,8 @@
 $(function () {
-  $("#auctions1").click(function () {
-    $("#menu").animate({ marginLeft: "0%" }, 400);
+  $(".auctions").click(function () {
+    $("#menu").slideToggle(300, function () {});
     $("#menu").show();
-    $("#auctions1").hide();
-    $("#auctions2").show();
-  });
-  $("#auctions2").click(function () {
-    $("#menu").animate({ marginLeft: "-18%" }, 400);
-    $("#auctions2").hide();
-    $("#auctions1").show();
+    console.log("click");
   });
 });
+console.log("working?");
