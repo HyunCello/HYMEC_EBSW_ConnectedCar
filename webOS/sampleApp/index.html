@@ -7,12 +7,13 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script type="text/javascript" src="javascript/clock.js"></script>
     <script type="text/javascript" src="javascript/function.js"></script>
+    <script src="http://www.youtube.com/player_api"></script>
 </head>
 
 <body>
     <div id="mainpage">
 
-        <div id="menu">
+        <div id="menu" style="display:none">
             <div class="parallelogram" style="background-color:rgb(17,17,17)">
                 <p>목적지<br>설정</p>
             </div>
@@ -27,7 +28,7 @@
             </div>
             <span style="width:0.5%;float: left"> &nbsp</span>
             <div class="parallelogram" style="background-color:rgb(66, 151, 152)">
-                <p>추천테마</p>
+                <p>추천테마<br>소개</p>
             </div>
 
             <span style="width:0.5%;float: left"> &nbsp</span>
@@ -38,9 +39,31 @@
         <a id="auctions1"><img class="auctions" src="img/menu.png"></a>
 
         <!--##############################################################################-->
-        <div>
-            <h1 id="txt_msg">Hello, Web Application!!</h1>
-        </div>
+        <div id="player"></div>
+        <script type="text/javascript">
+            var player;
+            function onYouTubePlayerAPIReady() {
+                player = new YT.Player("player", {
+                    width: "100%",
+                    height: "100%",
+                    videoId: "IW4IUciqo1A",
+                    playerVars: {
+                        'controls': 0,
+                        'showinfo': 0,
+                        'start': 33,
+                        'loop': 1,
+                        'playlist': 'IW4IUciqo1A'
+                    },
+                    events: {
+                        onReady: onPlayerReady
+                    }
+                });
+            }
+            function onPlayerReady(event) {
+                event.target.playVideo();
+            }
+
+        </script>
 
     </div>
 </body>
