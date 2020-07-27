@@ -16,7 +16,7 @@ Make **Connected Window** to get information happily
 
 ## Scinario
 
-![trunk](imges/career_trunk.jpg)
+![trunk](./imges/career_trunk.jpg)
 
 One Family is going to Jeju Island for Family Vacation.
 
