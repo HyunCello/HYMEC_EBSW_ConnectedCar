@@ -16,6 +16,8 @@ Make **Connected Window** to get information happily
 
 ## Scinario
 
+![trunk](imges/career_trunk.jpg)
+
 One Family is going to Jeju Island for Family Vacation.
 
 They reserved resorts and selected main view points, but didn't think about other sightseeings.
