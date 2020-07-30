@@ -5,20 +5,22 @@
     <title>Example Web App</title>
     <link rel="stylesheet" type="text/css" href="css/style.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script type="text/javascript" src="javascript/clock.js"></script>
-    <script type="text/javascript" src="javascript/function.js"></script>
+    <script type="text/javascript" src="js/clock.js"></script>
+    <script type="text/javascript" src="js/function.js"></script>
     <script src="http://www.youtube.com/player_api"></script>
 </head>
 
 <body>
-    <div id="mainpage">
+    <div class="mainpage">
+
 
         <div id="menu" style="display:none">
-            <div class="parallelogram" style="background-color:rgb(17,17,17)">
+            <div id="popup_open_btn1" class="parallelogram" style="background-color:rgb(17,17,17)">
+
                 <p>목적지<br>설정</p>
             </div>
             <span style="width:0.5%;float: left"> &nbsp</span>
-            <div class="parallelogram" style="background-color:rgb(104, 81, 132)">
+            <div id="popup_open_btn2" class="parallelogram" style="background-color:rgb(104, 81, 132)">
                 <p>주변관광지<br>
                     안내</p>
             </div>
@@ -64,8 +66,20 @@
             }
 
         </script>
-
+        <div id="my_modal1" class="modal">
+            이러쿵 저러쿵 뭐시기저시기 으아아아아아아</br>
+            이러쿵 저러쿵 뭐시기저시기 으아아아아아아</br>
+            이러쿵 저러쿵 뭐시기저시기 으아아아아아아
+        </div>
+        <div id="my_modal2" class="modal">
+            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Expedita dolore eveniet laborum repellat sit
+            distinctio, ipsa rem dicta alias velit? Repellat doloribus mollitia dolorem
+            voluptatum ex reiciendis aut in incidunt?
+        </div>
     </div>
+
+
 </body>
+<script type="text/javascript" src="js/modal.js"></script>
 
 </html>
