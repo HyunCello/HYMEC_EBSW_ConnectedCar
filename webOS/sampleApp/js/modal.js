@@ -67,3 +67,26 @@ document
     modal("my_modal2");
     $("#menu").slideToggle(500, function () {});
   });
+document
+  .getElementById("popup_open_btn3")
+  .addEventListener("click", function () {
+    // 모달창 띄우기
+    modal("my_modal2");
+    $("#menu").slideToggle(500, function () {});
+  });
+
+document
+  .getElementById("popup_open_btn4")
+  .addEventListener("click", function () {
+    // 모달창 띄우기
+    modal("my_modal2");
+    $("#menu").slideToggle(500, function () {});
+  });
+
+document
+  .getElementById("popup_open_btn5")
+  .addEventListener("click", function () {
+    // 모달창 띄우기
+    modal("my_modal2");
+    $("#menu").slideToggle(500, function () {});
+  });
