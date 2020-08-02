@@ -23,6 +23,8 @@ Make **Connected Window** to get information happily
 
 ## Scinario
 
+[답사](https://www.notion.so/hyuncello/5766916165ca437497203504cc41a0ee)
+
 ![trunk](./imges/career_trunk.png)
 
 One Family is going to Jeju Island for Family Vacation.
@@ -44,7 +46,7 @@ After arrived in Jeju Airport, they rent a car that have Connected Window System
 ## Effects
 
 - People that in car can get information about their intrests with AR contents
--
+- 
 
 ## Hardware Used
 
