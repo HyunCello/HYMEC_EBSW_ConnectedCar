@@ -8,6 +8,8 @@
     <script type="text/javascript" src="js/clock.js"></script>
     <script type="text/javascript" src="js/function.js"></script>
     <script src="http://www.youtube.com/player_api"></script>
+    <script type="text/javascript"
+        src="https://openapi.map.naver.com/openapi/v3/maps.js?ncpClientId=1bn280ccul"></script>
 </head>
 
 <body>
@@ -70,6 +72,7 @@
         <!--#########################                   모달                       ##############################-->
         <div id="my_modal1" class="modal">
             Naver Map API 넣기
+            <div id="map" style="width:92%;height:90%;margin-left: auto;margin-right: auto;"></div>
         </div>
         <div id="my_modal2" class="modal">
             GPS를 이용한 POI 찾기 (네이버지도 API?)-> 이건 webOS GPS api + ROS2 gps데이터 뿌리는거 + 그거그거 CV머신러닝
@@ -86,8 +89,16 @@
 
     </div>
 
+    <!--#########################          네이버 지도               ##############################-->
+    <script>
+        setTimeout(function () {
+            window.dispatchEvent(new Event("resize"));
+        }, 600);
+    </script>
+
 
 </body>
+<script type="text/javascript" src="js/map.js"></script>
 <script type="text/javascript" src="js/modal.js"></script>
 
 </html>

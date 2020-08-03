@@ -42,7 +42,7 @@ h1 {
 .parallelogram p {
   position: relative;
   top: 30%;
-  font-size: 4.5em;
+  font-size: 3.5vw;
   transform: skew(13deg);
 }
 .parallelogram:hover {
@@ -110,4 +110,137 @@ h1 {
   position: absolute;
   top: 10px;
   right: 10px;
+}
+#my_modal3 {
+  display: none;
+  width: 87%;
+  height: 84%;
+  padding: 20px 60px;
+  background-color: rgba(255, 255, 255, 0.8);
+  border: 1px solid #888;
+  border-radius: 3px;
+  border-radius: 0.2em;
+}
+
+#my_modal3 .modal_close_btn {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+}
+#my_modal4 {
+  display: none;
+  width: 87%;
+  height: 84%;
+  padding: 20px 60px;
+  background-color: rgba(255, 255, 255, 0.8);
+  border: 1px solid #888;
+  border-radius: 3px;
+  border-radius: 0.2em;
+}
+
+#my_modal4 .modal_close_btn {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+}
+#my_modal5 {
+  display: none;
+  width: 87%;
+  height: 84%;
+  padding: 20px 60px;
+  background-color: rgba(255, 255, 255, 0.8);
+  border: 1px solid #888;
+  border-radius: 3px;
+  border-radius: 0.2em;
+}
+
+#my_modal5 .modal_close_btn {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+}
+
+.btn_mylct {
+  z-index: 100;
+  overflow: hidden;
+  display: inline-block;
+  position: absolute;
+  top: 7px;
+  left: 5px;
+  width: 34px;
+  height: 34px;
+  border: 1px solid rgba(58, 70, 88, 0.45);
+  border-radius: 2px;
+  background: #fcfcfd;
+  text-align: center;
+  -webkit-background-clip: padding;
+  background-clip: padding-box;
+}
+
+.spr_trff {
+  overflow: hidden;
+  display: inline-block;
+  color: transparent !important;
+  vertical-align: top;
+  background: url(https://ssl.pstatic.net/static/maps/m/spr_trff_v6.png) 0 0;
+  background-size: 200px 200px;
+  -webkit-background-size: 200px 200px;
+}
+
+.spr_ico_mylct {
+  width: 20px;
+  height: 20px;
+  margin: 7px 0 0 0;
+  background-position: -153px -31px;
+}
+
+@media (max-width: 700px) {
+  .mainpage {
+    width: 100%;
+    height: auto;
+    background-color: #e4e4e4;
+  }
+  #menu {
+    position: absolute;
+    width: 100%;
+    height: 15%;
+    color: white;
+    bottom: 0px;
+  }
+  .parallelogram {
+    position: relative;
+    bottom: 0px;
+    left: 2.3%;
+    width: 19.6%;
+    height: 100%;
+    background: #ffa8a8;
+    border-radius: 0.5em;
+    float: left;
+    text-align: center;
+    transform: skew(-13deg);
+  }
+  .parallelogram p {
+    position: relative;
+    top: 33%;
+    font-size: 3.5vw;
+    transform: skew(13deg);
+  }
+  .parallelogram:hover {
+    position: relative;
+    top: -10%;
+  }
+  #auctions1 img {
+    float: right;
+    position: absolute;
+    left: 78%;
+    overflow: hidden;
+    align-items: center;
+    justify-content: right;
+    width: 20%;
+    height: 11%;
+    text-align: center;
+  }
+  .modal {
+    font-size: 2em;
+  }
 }

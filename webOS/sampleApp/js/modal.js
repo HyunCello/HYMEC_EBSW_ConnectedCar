@@ -57,7 +57,11 @@ document
     modal("my_modal1");
     $("#menu").slideToggle(500, function () {});
 
-    console.log("click");
+    console.log("지도 오픈~");
+
+    setTimeout(function () {
+      window.dispatchEvent(new Event("resize"));
+    }, 1);
   });
 
 document
@@ -71,7 +75,7 @@ document
   .getElementById("popup_open_btn3")
   .addEventListener("click", function () {
     // 모달창 띄우기
-    modal("my_modal2");
+    modal("my_modal3");
     $("#menu").slideToggle(500, function () {});
   });
 
@@ -79,7 +83,7 @@ document
   .getElementById("popup_open_btn4")
   .addEventListener("click", function () {
     // 모달창 띄우기
-    modal("my_modal2");
+    modal("my_modal4");
     $("#menu").slideToggle(500, function () {});
   });
 
@@ -87,6 +91,6 @@ document
   .getElementById("popup_open_btn5")
   .addEventListener("click", function () {
     // 모달창 띄우기
-    modal("my_modal2");
+    modal("my_modal5");
     $("#menu").slideToggle(500, function () {});
   });
