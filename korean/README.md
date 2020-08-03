@@ -2,30 +2,28 @@
 
 제 18회 임베디드 소프트웨어 경진대회 제출 및 프로젝트 관리를 위한 페이지입니다
 
-This is repository for 18th Embedded Software Contest webOS part
+This is repository for 18th Embedded Software Contest
 
-[한국어로 보기](./korean/README.md)
+[See English](../README.md)
 
-## Our Goal
+## 개발 목표
 
 Make **Connected Window** to get information happily
 
-## Functions
+## 기능들
 
 1. Window Display
 
-   ![main](./imges/index.png)
+   ![trunk](../imges/index.png)
 
 2. AR contents
 3. Using POI
 4. Inform Congestion about each POI
 5. Show trunk stuffs
 
-## Scinario
+## 시나리오
 
-[답사](https://www.notion.so/hyuncello/5766916165ca437497203504cc41a0ee)
-
-![trunk](./imges/career_trunk.png)
+![trunk](../imges/career_trunk.png)
 
 One Family is going to Jeju Island for Family Vacation.
 
@@ -35,7 +33,7 @@ After arrived in Jeju Airport, they rent a car that have Connected Window System
 
 ...
 
-## Develop points
+## 개발 포인트
 
 - [ ] AR 콘텐츠를 이용한 효과적인 주변 정보 표현
 - [ ] 객채인식을 이용한 주변 견광의 정보 제공
@@ -43,24 +41,7 @@ After arrived in Jeju Airport, they rent a car that have Connected Window System
 - [ ] 목적지 주변의 장소의 정보들을 다양한 테마에 맞게 제공
 - [ ] 객채인식을 이용한 트렁크 내 물체 확인
 
-## Effects
+## 기대 효과
 
 - People that in car can get information about their intrests with AR contents
-- 
-
-## Hardware Used
-
-- Nvidia Jetson Nano
-- Raspberrypi4
-- 15.6" touch display \* 2
-- Logitech C920r \* 2
-
-## Software Used
-
-- webOS
-- webApp for webOS
-- LS2 API for webOS
-- Naver Map API
-- ROS2
-  - for Communication between Jetson NANO and webOS
 -

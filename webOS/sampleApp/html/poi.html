@@ -3,22 +3,34 @@
 
 <head>
     <title>Example Web App</title>
-    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <link rel="stylesheet" type="text/css" href="../css/style.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script type="text/javascript" src="javascript/clock.js"></script>
-    <script type="text/javascript" src="javascript/function.js"></script>
+    <script type="text/javascript" src="../js/function.js"></script>
+
     <script src="http://www.youtube.com/player_api"></script>
 </head>
 
 <body>
-    <div id="mainpage">
-
+    <div class="mainpage">
+        <div id="my_modal1">
+            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Expedita dolore eveniet laborum repellat sit
+            distinctio, ipsa rem dicta alias velit? Repellat doloribus mollitia dolorem
+            voluptatum ex reiciendis aut in incidunt?
+            <a class="modal_close_btn">닫기</a>
+        </div>
+        <div id="my_modal2">
+            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Expedita dolore eveniet laborum repellat sit
+            distinctio, ipsa rem dicta alias velit? Repellat doloribus mollitia dolorem
+            voluptatum ex reiciendis aut in incidunt?
+            <a class="modal_close_btn">닫기</a>
+        </div>
         <div id="menu" style="display:none">
-            <div class="parallelogram" style="background-color:rgb(17,17,17)">
+            <div id="popup_open_btn1" class="parallelogram" style="background-color:rgb(17,17,17)">
+
                 <p>목적지<br>설정</p>
             </div>
             <span style="width:0.5%;float: left"> &nbsp</span>
-            <div class="parallelogram" style="background-color:rgb(104, 81, 132)">
+            <div id="popup_open_btn2" class="parallelogram" style="background-color:rgb(104, 81, 132)">
                 <p>주변관광지<br>
                     안내</p>
             </div>
@@ -36,12 +48,14 @@
                 <p>트렁크<br>확인</p>
             </div>
         </div>
-        <a id="auctions1"><img class="auctions" src="img/menu.png"></a>
+        <a id="auctions1"><img class="auctions" src="../img/menu.png"></a>
 
         <!--##############################################################################-->
 
 
+
     </div>
 </body>
+<script type="text/javascript" src="../js/modal.js"></script>
 
 </html>
