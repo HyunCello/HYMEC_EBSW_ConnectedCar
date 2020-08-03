@@ -25,16 +25,14 @@ Make **Connected Window** to get information happily
 
 [답사](https://www.notion.so/hyuncello/5766916165ca437497203504cc41a0ee)
 
-![scenario1](./imges/scenario1.png)
-![scenario2](./imges/scenario2.png)
-
 One Family is going to Jeju Island for Family Vacation.
 
 They reserved resorts and selected main view points, but didn't think about other sightseeings.
 
 After arrived in Jeju Airport, they rent a car that have Connected Window System.
 
-...
+![scenario1](./imges/scenario1.png)
+![scenario2](./imges/scenario2.png)
 
 #1 가족끼리 여행을 가기 위해 계획을 세우는 장면
 
