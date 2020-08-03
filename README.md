@@ -26,6 +26,7 @@ Make **Connected Window** to get information happily
 [답사](https://www.notion.so/hyuncello/5766916165ca437497203504cc41a0ee)
 
 ![scenario1](./imges/scenario1.png)
+![scenario2](./imges/scenario2.png)
 
 One Family is going to Jeju Island for Family Vacation.
 
