@@ -1,14 +1,10 @@
 {
-  "id": "com.example.sampleapp",
+  "id": "com.connected.window",
   "version": "1.0.0",
   "vendor": "My Company",
   "type": "web",
   "main": "index.html",
-  "title": "example",
+  "title": "ConnectedWindow",
   "icon": "icon.png",
-  "requiredPermissions": [
-    "time",
-    "settings.read",
-    "activities.manage"
-  ]
+  "requiredPermissions": ["time", "settings.read", "activities.manage"]
 }
