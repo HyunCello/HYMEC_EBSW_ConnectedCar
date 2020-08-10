@@ -1,4 +1,4 @@
-window.onload = function () {
+function clock() {
   var bridge = new WebOSServiceBridge();
   /*
    *  getTimeApi calls gettime of systemservice, a module in the platform.
@@ -26,7 +26,7 @@ window.onload = function () {
     } else {
       console.error(
         "[APP_NAME: example web app] GETTIME_FAILED errorText : " +
-          arg.errorText
+        arg.errorText
       );
       //webOSSystem.PmLogString(3, "GETTIME_FAILED", '{"APP_NAME": "example web app"}', "errorText : " + arg.errorText);
     }
@@ -38,13 +38,13 @@ window.onload = function () {
       document.getElementById("txt_msg").innerHTML = arg.Response;
       console.log(
         "[APP_NAME: example web app] CALLHELLO_SUCCESS response : " +
-          arg.Response
+        arg.Response
       );
       //webOSSystem.PmLogString(6, "CALLHELLO_SUCCESS", '{"APP_NAME": "example web app"}', "response : " + arg.Response);
     } else {
       console.error(
         "[APP_NAME: example web app] CALLHELLO_FAILED errorText : " +
-          arg.errorText
+        arg.errorText
       );
       //webOSSystem.PmLogString(3, "CALLHELLO_FAILED", '{"APP_NAME": "example web app"}', "errorText : " + arg.errorText);
     }

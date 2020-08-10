@@ -38,7 +38,6 @@ function modal(id) {
     webkitTransform: "translate(-50%, -50%)",
   });
   document.getElementById("bg").addEventListener("click", function () {
-    console.log("된다~~~~~~~~~~~~~~~");
     bg.remove();
     modal.style.display = "none";
   });
