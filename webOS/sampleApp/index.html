@@ -4,6 +4,7 @@
 <head>
     <title>Example Web App</title>
     <link rel="stylesheet" type="text/css" href="css/style.css">
+    <link rel="stylesheet" type="text/css" href="css/mapstyle.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
     <script type="text/javascript" src="js/function.js"></script>
@@ -26,7 +27,7 @@
             </div>
             <span style="width:0.5%;float: left"> &nbsp</span>
             <div id="popup_open_btn2" class="parallelogram" style="background-color:rgb(104, 81, 132)">
-                <p>주변관광지<br>
+                <p>주변
                     안내</p>
             </div>
             <span style="width:0.5%;float: left"> &nbsp</span>
@@ -74,8 +75,24 @@
 
         <!--#########################                   모달                       ##############################-->
         <div id="my_modal1" class="modal">
-            Daum 지도를 쓰자 => 인증 문제가 있음
-            <div id="map" style="width:92%;height:90%;margin-left: auto;margin-right: auto;"></div>
+            <div class="map_wrap">
+                <div id="map" style="width:100%;height:100%;margin-left: auto;margin-right: auto;"></div>
+
+                <div id="menu_wrap" class="bg_white">
+                    <div class="option">
+                        <div>
+                            <form onsubmit="searchPlaces(); return false;">
+                                키워드 : <input type="text" value="제주도" id="keyword" size="15">
+                                <button type="submit">검색하기</button>
+                            </form>
+                        </div>
+                    </div>
+                    <hr>
+                    <ul id="placesList"></ul>
+                    <div id="pagination"></div>
+                </div>
+            </div>
+
         </div>
         <div id="my_modal2" class="modal">
             GPS를 이용한 POI 찾기 (네이버지도 API?)-> 이건 webOS GPS api + ROS2 gps데이터 뿌리는거 + 그거그거 CV머신러닝
@@ -124,7 +141,8 @@
     <!--#########################          네이버 지도               ##############################-->
 
 </body>
-<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=c862bcec5649b618c14bc197d11d0d6a"></script>
+<script type="text/javascript"
+    src="//dapi.kakao.com/v2/maps/sdk.js?appkey=c862bcec5649b618c14bc197d11d0d6a&libraries=services"></script>
 
 <script type="text/javascript" src="js/kakaomap.js"></script>
 <script type="text/javascript" src="js/modal.js"></script>
