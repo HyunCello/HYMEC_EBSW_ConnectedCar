@@ -10,16 +10,7 @@ This is repository for 18th Embedded Software Contest webOS part
 
 Make **Connected Window** to get information happily
 
-## Functions
 
-1. Window Display
-
-   ![main](./imges/index.png)
-
-2. AR contents
-3. Using POI
-4. Inform Congestion about each POI
-5. Show trunk stuffs
 
 ## Scinario
 
@@ -46,6 +37,17 @@ Make **Connected Window** to get information happily
 - [ ] 가고자 하는 장소의 혼잡도 안내 (도로 혼잡상황 이용)
 - [ ] 목적지 주변의 장소의 정보들을 다양한 테마에 맞게 제공
 - [ ] 객채인식을 이용한 트렁크 내 물체 확인
+
+## Functions
+
+1. Window Display
+
+   ![main](./imges/index.png)
+
+2. AR contents
+3. Using POI
+4. Inform Congestion about each POI
+5. Show trunk stuffs
 
 ## Effects
 
