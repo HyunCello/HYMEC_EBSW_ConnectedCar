@@ -63,10 +63,9 @@ Make **Connected Window** to get information happily
 
 ## Software Used
 
-- webOS
+- ROS integrated webOS
 - webApp for webOS
 - LS2 API for webOS
 - Naver Map API
-- ROS2
-  - for Communication between Jetson NANO and webOS
--
+- ROS
+- Google Cloud Platform
