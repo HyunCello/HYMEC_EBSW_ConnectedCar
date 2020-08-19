@@ -11,6 +11,9 @@
     <script src="http://www.youtube.com/player_api"></script>
     <!-- <script type="text/javascript"
         src="https://openapi.map.naver.com/openapi/v3/maps.js?ncpClientId=1bn280ccul"></script> -->
+    <link rel="stylesheet" type="text/css" href="css/base.css" />
+    <script>document.documentElement.className = "js"; var supportsCssVars = function () { var e, t = document.createElement("style"); return t.innerHTML = "root: { --tmp-var: bold; }", document.head.appendChild(t), e = !!(window.CSS && window.CSS.supports && window.CSS.supports("font-weight", "var(--tmp-var)")), t.parentNode.removeChild(t), e }; supportsCssVars() || alert("Please view this demo in a modern browser that supports CSS Variables.");</script>
+
 
 </head>
 
@@ -75,30 +78,30 @@
 
         <!--#########################                   모달                       ##############################-->
         <div id="my_modal1" class="modal">
-            <div class="map_wrap">
-                <div id="map" style="width:100%;height:100%;margin-left: auto;margin-right: auto;"></div>
-
-                <div id="menu_wrap" class="bg_white">
-                    <div class="option">
-                        <div>
-                            <form onsubmit="searchPlaces(); return false;">
-                                키워드 : <input type="text" value="제주도" id="keyword" size="15">
-                                <button type="submit">검색하기</button>
-                            </form>
-                        </div>
-                    </div>
-                    <hr>
-                    <ul id="placesList"></ul>
-                    <div id="pagination"></div>
+            <iframe src="https://ebsw-662b4.web.app/"></iframe>
+        </div>
+        <div id="my_modal2" class="modal">
+            <div id="ar">
+                <div class="loading" id="js-loader">
+                    <div class="loader"></div>
                 </div>
+                <div class="wrapper">
+                    <!-- The canvas element is used to draw the 3D scene -->
+                    <canvas id="c"></canvas>
+                </div>
+
+                <!-- The main Three.js file -->
+                <script src='https://cdnjs.cloudflare.com/ajax/libs/three.js/108/three.min.js'></script>
+                <!-- This brings in the ability to load custom 3D objects in the .gltf file format. Blender allows the ability to export to this format out the box -->
+                <script
+                    src='https://cdn.jsdelivr.net/gh/mrdoob/Three.js@r92/examples/js/loaders/GLTFLoader.js'></script>
+                <!-- partial -->
+                <script src="js/script.js"></script>
             </div>
 
         </div>
-        <div id="my_modal2" class="modal">
-            GPS를 이용한 POI 찾기 (네이버지도 API?)-> 이건 webOS GPS api + ROS2 gps데이터 뿌리는거 + 그거그거 CV머신러닝
-        </div>
         <div id="my_modal3" class="modal">
-            <iframe src="https://ebsw-662b4.web.app"></iframe>
+            <iframe src="https://ebsw2-28861.web.app"></iframe>
         </div>
         <div id="my_modal4" class="modal">
             테마 데이터 만들기 + 검색??주변에 있는거 알려주기
