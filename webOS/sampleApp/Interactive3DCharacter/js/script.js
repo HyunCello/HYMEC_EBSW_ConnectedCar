@@ -1,25 +1,25 @@
 (function () {
   // Set our main variables
   let scene,
-  renderer,
-  camera,
-  model, // Our character
-  neck, // Reference to the neck bone in the skeleton
-  waist, // Reference to the waist bone in the skeleton
-  possibleAnims, // Animations found in our file
-  mixer, // THREE.js animations mixer
-  idle, // Idle, the default state our character returns to
-  clock = new THREE.Clock(), // Used for anims, which run to a clock instead of frame rate 
-  currentlyAnimating = false, // Used to check whether characters neck is being used in another anim
-  raycaster = new THREE.Raycaster(), // Used to detect the click on our character
-  loaderAnim = document.getElementById('js-loader');
+    renderer,
+    camera,
+    model, // Our character
+    neck, // Reference to the neck bone in the skeleton
+    waist, // Reference to the waist bone in the skeleton
+    possibleAnims, // Animations found in our file
+    mixer, // THREE.js animations mixer
+    idle, // Idle, the default state our character returns to
+    clock = new THREE.Clock(), // Used for anims, which run to a clock instead of frame rate 
+    currentlyAnimating = false, // Used to check whether characters neck is being used in another anim
+    raycaster = new THREE.Raycaster(), // Used to detect the click on our character
+    loaderAnim = document.getElementById('js-loader');
 
   init();
 
   function init() {
 
     const MODEL_PATH = 'https://s3-us-west-2.amazonaws.com/s.cdpn.io/1376484/stacy_lightweight.glb';
-    const canvas = document.querySelector('#c');
+    var drawingSurface = document.getElementById('c');
     const backgroundColor = 0xf1f1f1;
 
     // Init the scene
@@ -28,17 +28,17 @@
     scene.fog = new THREE.Fog(backgroundColor, 60, 100);
 
     // Init the renderer
-    renderer = new THREE.WebGLRenderer({ canvas, antialias: true });
+    renderer = new THREE.WebGLRenderer({ canvas: drawingSurface, antialias: true });
     renderer.shadowMap.enabled = true;
     renderer.setPixelRatio(window.devicePixelRatio);
     document.body.appendChild(renderer.domElement);
 
     // Add a camera
     camera = new THREE.PerspectiveCamera(
-    50,
-    window.innerWidth / window.innerHeight,
-    0.1,
-    1000);
+      50,
+      window.innerWidth / window.innerHeight,
+      0.1,
+      1000);
 
     camera.position.z = 30;
     camera.position.x = 0;
@@ -50,68 +50,69 @@
     const stacy_mtl = new THREE.MeshPhongMaterial({
       map: stacy_txt,
       color: 0xffffff,
-      skinning: true });
+      skinning: true
+    });
 
 
 
     var loader = new THREE.GLTFLoader();
 
     loader.load(
-    MODEL_PATH,
-    function (gltf) {
-      model = gltf.scene;
-      let fileAnimations = gltf.animations;
+      MODEL_PATH,
+      function (gltf) {
+        model = gltf.scene;
+        let fileAnimations = gltf.animations;
 
-      model.traverse(o => {
+        model.traverse(o => {
 
-        if (o.isMesh) {
-          o.castShadow = true;
-          o.receiveShadow = true;
-          o.material = stacy_mtl;
-        }
-        // Reference the neck and waist bones
-        if (o.isBone && o.name === 'mixamorigNeck') {
-          neck = o;
-        }
-        if (o.isBone && o.name === 'mixamorigSpine') {
-          waist = o;
-        }
+          if (o.isMesh) {
+            o.castShadow = true;
+            o.receiveShadow = true;
+            o.material = stacy_mtl;
+          }
+          // Reference the neck and waist bones
+          if (o.isBone && o.name === 'mixamorigNeck') {
+            neck = o;
+          }
+          if (o.isBone && o.name === 'mixamorigSpine') {
+            waist = o;
+          }
+        });
+
+        model.scale.set(7, 7, 7);
+        model.position.y = -11;
+
+        scene.add(model);
+
+        loaderAnim.remove();
+
+        mixer = new THREE.AnimationMixer(model);
+
+        let clips = fileAnimations.filter(val => val.name !== 'idle');
+        possibleAnims = clips.map(val => {
+          let clip = THREE.AnimationClip.findByName(clips, val.name);
+
+          clip.tracks.splice(3, 3);
+          clip.tracks.splice(9, 3);
+
+          clip = mixer.clipAction(clip);
+          return clip;
+        });
+
+
+        let idleAnim = THREE.AnimationClip.findByName(fileAnimations, 'idle');
+
+        idleAnim.tracks.splice(3, 3);
+        idleAnim.tracks.splice(9, 3);
+
+        idle = mixer.clipAction(idleAnim);
+        idle.play();
+
+      },
+      undefined, // We don't need this function
+      function (error) {
+        console.error(error);
       });
-
-      model.scale.set(7, 7, 7);
-      model.position.y = -11;
-
-      scene.add(model);
-
-      loaderAnim.remove();
-
-      mixer = new THREE.AnimationMixer(model);
-
-      let clips = fileAnimations.filter(val => val.name !== 'idle');
-      possibleAnims = clips.map(val => {
-        let clip = THREE.AnimationClip.findByName(clips, val.name);
-
-        clip.tracks.splice(3, 3);
-        clip.tracks.splice(9, 3);
-
-        clip = mixer.clipAction(clip);
-        return clip;
-      });
-
-
-      let idleAnim = THREE.AnimationClip.findByName(fileAnimations, 'idle');
-
-      idleAnim.tracks.splice(3, 3);
-      idleAnim.tracks.splice(9, 3);
-
-      idle = mixer.clipAction(idleAnim);
-      idle.play();
-
-    },
-    undefined, // We don't need this function
-    function (error) {
-      console.error(error);
-    });
 
 
     // Add lights
@@ -139,7 +140,8 @@
     let floorGeometry = new THREE.PlaneGeometry(5000, 5000, 1, 1);
     let floorMaterial = new THREE.MeshPhongMaterial({
       color: 0xeeeeee,
-      shininess: 0 });
+      shininess: 0
+    });
 
 
     let floor = new THREE.Mesh(floorGeometry, floorMaterial);
@@ -184,7 +186,7 @@
     let canvasPixelHeight = canvas.height / window.devicePixelRatio;
 
     const needResize =
-    canvasPixelWidth !== width || canvasPixelHeight !== height;
+      canvasPixelWidth !== width || canvasPixelHeight !== height;
     if (needResize) {
       renderer.setSize(width, height, false);
     }
@@ -263,11 +265,11 @@
 
   function getMouseDegrees(x, y, degreeLimit) {
     let dx = 0,
-    dy = 0,
-    xdiff,
-    xPercentage,
-    ydiff,
-    yPercentage;
+      dy = 0,
+      xdiff,
+      xPercentage,
+      ydiff,
+      yPercentage;
 
     let w = { x: window.innerWidth, y: window.innerHeight };
 
