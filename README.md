@@ -70,3 +70,7 @@ Make **Connected Window** to get information happily
 - Naver Map API
 - ROS
 - Google Cloud Platform
+
+## Hard Parts
+
+- embed ROS to webOS
