@@ -204,6 +204,12 @@ iframe{
   border-radius: 0.2em;
 }
 
+.recommand{
+  display: inline-block;
+  background-color: rgb(171, 139, 79);
+  border-radius: 0.2em;
+  color:rgb(60, 60, 60);
+}
 
 
 
