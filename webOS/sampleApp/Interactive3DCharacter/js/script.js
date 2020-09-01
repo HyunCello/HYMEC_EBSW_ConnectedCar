@@ -139,7 +139,7 @@
     // Floor
     let floorGeometry = new THREE.PlaneGeometry(5000, 5000, 1, 1);
     let floorMaterial = new THREE.MeshPhongMaterial({
-      color: 153944,
+      color: 0x999999,
       shininess: 0
     });
 
@@ -151,13 +151,13 @@
     scene.add(floor);
 
     let geometry = new THREE.SphereGeometry(8, 32, 32);
-    let material = new THREE.MeshBasicMaterial({ color: 0x9bffaf }); // 0xf2ce2e 
+    let material = new THREE.MeshBasicMaterial({ color: 0xf2ce2e }); // 0xf2ce2e AR 뒤에 동그라미
     let sphere = new THREE.Mesh(geometry, material);
 
     sphere.position.z = -15;
     sphere.position.y = -2.5;
     sphere.position.x = -0.25;
-    scene.add(sphere);
+    //scene.add(sphere); // AR 뒤 없애기
   }
 
 
