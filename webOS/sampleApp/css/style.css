@@ -206,9 +206,11 @@ iframe{
 
 .recommand{
   display: inline-block;
-  background-color: rgb(171, 139, 79);
+  background-color: rgb(213, 188, 140);
   border-radius: 0.2em;
   color:rgb(60, 60, 60);
+  padding : 0.2em;
+  margin-bottom : 0.2em;
 }
 
 
