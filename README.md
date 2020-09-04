@@ -41,14 +41,13 @@ Make **Connected Window** to get information happily
 
 ## Functions
 
-1. Window Display
+1. 창문의 디스플레이화
 
    ![main](./imges/index.png)
 
-2. AR contents
-3. Using POI
-4. Inform Congestion about each POI
-5. Show trunk stuffs
+2. AR 콘텐츠
+3. POI를 활용한 정보 선택
+4. 트렁크 내부 정보 제공
 
 ## Effects
 
