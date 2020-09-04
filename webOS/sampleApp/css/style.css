@@ -25,6 +25,7 @@ h1 {
   height: 35%;
   color: white;
   bottom: 0px;
+  z-index: 1;
 }
 
 .parallelogram {
@@ -60,6 +61,7 @@ h1 {
   width: 7%;
   height: 14%;
   text-align: center;
+  z-index: 1;
 }
 
 /*  ////////////////////////////////////////////////////////////  */
