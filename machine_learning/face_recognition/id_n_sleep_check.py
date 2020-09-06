@@ -40,9 +40,6 @@ coon_encoding = face_recognition.face_encodings(coon)[0]
 hyun = face_recognition.load_image_file("known_image/hyun.jpg")
 hyun_encoding = face_recognition.face_encodings(hyun)[0]
 
-yong = face_recognition.load_image_file("known_image/yong.jpg")
-yong_encoding = face_recognition.face_encodings(yong)[0]
-
 so = face_recognition.load_image_file("known_image/so.jpg")
 so_encoding = face_recognition.face_encodings(so)[0]
 
@@ -56,7 +53,6 @@ yoon_encoding = face_recognition.face_encodings(yoon)[0]
 known_face_encodings = [
     coon_encoding,
     hyun_encoding,
-    yong_encoding,
     so_encoding,
     gyu_encoding,
     yoon_encoding
@@ -65,7 +61,6 @@ known_face_encodings = [
 known_face_names = [
     "Jeong_Seok_Hoon",
     "Kim_Yu_Hyun",
-    "Jo_Jeong_Yong",
     "Kwon_So_Eun",
     "Lee_Dong_Gyu",
     "Yang_Ji_Yoon"
@@ -77,8 +72,10 @@ face_encodings = []
 face_names = []
 process_this_frame = True
 
+shrink = 0.25
+
 EYES_CLOSED_SECONDS = 3
-ID_CHECK=3
+ID_CHECK=30
 
 closed_count = 0 
 id_check_count = 1
@@ -91,7 +88,7 @@ while True:
     ret, frame = video_capture.read()
     start=time.time()
     # Resize frame of video to 1/4 size for faster face recognition processing
-    small_frame = cv2.resize(frame, (0, 0), fx=0.2, fy=0.2) ############ the more low parameter the more faster fps
+    small_frame = cv2.resize(frame, (0, 0), fx=shrink, fy=shrink) ############ the more low parameter the more faster fps
 
     # Convert the image from BGR color (which OpenCV uses) to RGB color (which face_recognition uses)
     rgb_small_frame = small_frame[:, :, ::-1]
