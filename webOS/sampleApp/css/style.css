@@ -1,6 +1,11 @@
+@font-face {
+  font-family: "NotoSans";
+  src: url(../fonts/NotoSansCJKkr-Thin.otf);
+}
 * {
   margin: 0px;
   padding: 0px;
+  font-family: "NotoSans", Arial, Helvetica, sans-serif;
   /*color: white;*/
 }
 body {
@@ -42,7 +47,7 @@ h1 {
 }
 .parallelogram p {
   position: relative;
-  top: 30%;
+  top: 25%;
   font-size: 3.5vw;
   transform: skew(13deg);
 }
