@@ -221,6 +221,24 @@ iframe{
 }
 
 
+.AR {
+  width: 600px;
+  height: 1300px;
+  display: block;
+  position: absolute;
+  float: left;
+  bottom:-50px;
+  right:-20px;
+}
+
+#c{
+  
+  width: 100%;
+  height: 100%;
+  z-index:1000;
+}
+
+
 
 @media (max-width: 700px) {
   .mainpage {
@@ -272,3 +290,8 @@ iframe{
     font-size: 2em;
   }
 }
+
+
+
+
+
