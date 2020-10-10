@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Example Web App</title>
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <link rel="stylesheet" type="text/css" href="css/mapstyle.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+    <script type="text/javascript" src="js/function.js"></script>
+    <script src="http://www.youtube.com/player_api"></script>
+    <!-- <script type="text/javascript"
+        src="https://openapi.map.naver.com/openapi/v3/maps.js?ncpClientId=1bn280ccul"></script> -->
+    <script>document.documentElement.className = "js"; var supportsCssVars = function () { var e, t = document.createElement("style"); return t.innerHTML = "root: { --tmp-var: bold; }", document.head.appendChild(t), e = !!(window.CSS && window.CSS.supports && window.CSS.supports("font-weight", "var(--tmp-var)")), t.parentNode.removeChild(t), e }; supportsCssVars() || alert("Please view this demo in a modern browser that supports CSS Variables.");</script>
+
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r79/three.min.js"></script> -->
+
+    <!-- <script type="module" src="js/3d.js"></script> -->
+</head>
+
+<script type="text/javascript" src="js/clock.js"></script>
+
+<body>
+    <div class="mainpage">
+
+        <!--#########################                   메뉴                       ##############################-->
+        <div id="menu" style="display:none">
+            <div id="popup_open_btn1" class="parallelogram" style="background-color:rgb(17,17,17)">
+
+                <p>목적지<br>설정</p>
+            </div>
+            <span style="width:0.5%;float: left"> &nbsp</span>
+            <div id="popup_open_btn2" class="parallelogram" style="background-color:rgb(104, 81, 132)">
+                <p>교통상황<br>확인</p>
+
+            </div>
+            <span style="width:0.5%;float: left"> &nbsp</span>
+            <div id="popup_open_btn4" class="parallelogram" style="background-color:rgb(66, 151, 152)">
+                <p>추천테마<br>소개</p>
+            </div>
+
+            <span style="width:0.5%;float: left"> &nbsp</span>
+            <div id="popup_open_btn5" class="parallelogram" style="background-color:rgb(212, 65, 52)">
+                <p>트렁크<br>확인</p>
+            </div>
+            <span style="width:0.5%;float: left"> &nbsp</span>
+            <div id="popup_open_btn3" class="parallelogram" style="background-color:rgb(113, 112, 244)">
+                <p>주변<br>
+                    안내</p>
+            </div>
+
+
+        </div>
+        <a id="auctions1"><img class="auctions" src="img/menu.png" onclick="toast()"></a>
+        <!-- <video id="vid" loop muted>
+            <source src="https://storage.googleapis.com/hyuncello/background1.mp4" type="video/mp4">
+            browser not supported?
+        </video>
+        <script type="text/javascript">
+            document.getElementById('vid').play();
+
+        </script> -->
+        <!--##############################################################################-->
+        <div id="player"></div>
+
+        <script type="text/javascript">
+            var player;
+            function onYouTubePlayerAPIReady() {
+                player = new YT.Player("player", {
+                    width: "100%",
+                    height: "100%",
+                    videoId: "I9PwT-MqEjg",
+                    playerVars: {
+                        'controls': 0,
+                        'showinfo': 0,
+                        'start': 0,
+                        'loop': 1,
+                        'playlist': 'I9PwT-MqEjg'
+                    },
+                    events: {
+                        onReady: onPlayerReady
+                    }
+                });
+            }
+            function onPlayerReady(event) {
+                event.target.mute();
+                event.target.playVideo();
+            }
+        </script>
+
+        <!--#########################                   모달                       ##############################-->
+        <div id="my_modal1" class="modal">
+            <iframe src="https://ebsw-662b4.web.app/"></iframe>
+        </div>
+        <div id="my_modal2" class="modal">
+            <iframe src="https://ebsw2-28861.web.app"></iframe>
+        </div>
+        <div id="my_modal3" class="modal">
+            <!-- <div id="image">
+
+            </div>
+            <div class="AR">
+                <canvas id="c" id="js-loader"></canvas>
+            </div> -->
+        </div>
+        <div id="my_modal4" class="modal">
+            <!-- <iframe src="http://192.168.0.10:5000"></iframe> -->
+            <!-- <div class="recommand">자연을 보고 싶어요</div>
+            <div class="recommand">박물관을 좋아해요</div>
+            <div class="recommand">액티비티를 하고싶어요</div> -->
+        </div>
+        <div id="my_modal5" class="modal">
+            CV 머신러닝
+        </div>
+
+    </div>
+
+    <!--#########################         LS2 API            ##############################-->
+    <script>
+        setTimeout(function () {
+            window.dispatchEvent(new Event("resize"));
+        }, 600);
+
+        function toast(messg) {
+            var bridge = new WebOSServiceBridge();
+            var id;
+            var createtoast = 'luna://com.webos.notification/createToast';
+            bridge.onservicecallback = callback;
+
+            function callback(msg) {
+                var response = JSON.parse(msg);
+                console.log(response.returnValue);
+            }
+
+            var subparams = JSON.stringify({
+                "message": messg,
+                "noaction": false,
+            });
+
+            bridge.call(createtoast, subparams);
+
+
+        }
+        console.log(document.domain)
+    </script>
+
+    <!--#########################          module이 임포트가 안되어서 어쩔 수 없이 내부 스크립트로 저장               ##############################-->
+    <script type="module">
+
+        import * as THREE from 'https://threejsfundamentals.org/threejs/resources/threejs/r119/build/three.module.js';
+        import { OrbitControls } from 'https://threejsfundamentals.org/threejs/resources/threejs/r119/examples/jsm/controls/OrbitControls.js';
+        import { GLTFLoader } from 'https://threejsfundamentals.org/threejs/resources/threejs/r119/examples/jsm/loaders/GLTFLoader.js';
+
+
+
+        function main() {
+            const canvas = document.querySelector('#c');
+            const renderer = new THREE.WebGLRenderer({ canvas, alpha: true });
+            //renderer = new THREE.WebGLRenderer({  });
+
+            renderer.setClearColor(0xffffff, 0);
+            const fov = 40;
+            const aspect = 1;  // the canvas default
+            const near = 0.1;
+            const far = 100000;
+            const camera = new THREE.PerspectiveCamera(fov, aspect, near, far);
+            camera.position.set(0, 0, 100);
+
+            const controls = new OrbitControls(camera, canvas);
+            controls.target.set(0, 0, 10);
+            controls.update();
+
+            const scene = new THREE.Scene();
+            scene.background = new THREE.WebGLRenderer({ alpha: true })
+            //scene.background = new THREE.Color(0xff0000);
+            //scene.background = new THREE.Color('skyblue');
+
+            //background.setClearColor(0xb0f442); //default
+
+            let
+                model,
+                possibleAnims, // Animations found in our file
+                mixer, // THREE.js animations mixer
+                idle, // Idle, the default state our character returns to
+                clock = new THREE.Clock(), // Used for anims, which run to a clock instead of frame rate 
+                currentlyAnimating = false, // Used to check whether characters neck is being used in another anim
+                raycaster = new THREE.Raycaster(), // Used to detect the click on our character
+                loaderAnim = document.getElementById('js-loader');
+            {
+                const planeSize = 0.01;
+
+                const loader = new THREE.TextureLoader();
+                const texture = loader.load('http://www.abc.com/sunflower.png');
+                texture.wrapS = THREE.RepeatWrapping;
+                texture.wrapT = THREE.RepeatWrapping;
+                texture.magFilter = THREE.NearestFilter;
+                const repeats = planeSize / 2;
+                texture.repeat.set(repeats, repeats);
+
+                const planeGeo = new THREE.PlaneBufferGeometry(planeSize, planeSize);
+                const planeMat = new THREE.MeshPhongMaterial({
+                    map: texture,
+                    side: THREE.DoubleSide,
+                });
+                const mesh = new THREE.Mesh(planeGeo, planeMat);
+                mesh.rotation.x = Math.PI * -.55;
+                scene.add(mesh);
+
+            }
+
+            {
+                const skyColor = 0xB1E1FF;  // light blue
+                const groundColor = 0xB97A20;  // brownish orange
+                const intensity = 0.7;
+                const light = new THREE.HemisphereLight(skyColor, groundColor, intensity);
+                scene.add(light);
+            }
+
+            {
+                const color = 0xFFFFFF;
+                const intensity = 1;
+                const light = new THREE.DirectionalLight(color, intensity);
+                light.position.set(-2, 4, 2);
+                scene.add(light);
+                scene.add(light.target);
+            }
+
+            function frameArea(sizeToFitOnScreen, boxSize, boxCenter, camera) {
+                const halfSizeToFitOnScreen = sizeToFitOnScreen * 0.3;
+                const halfFovY = THREE.MathUtils.degToRad(camera.fov * 0.1);
+                const distance = halfSizeToFitOnScreen / Math.tan(halfFovY);
+                // compute a unit vector that points in the direction the camera is now
+                // in the xz plane from the center of the box
+                const direction = (new THREE.Vector3())
+                    .subVectors(camera.position, boxCenter)
+                    .multiply(new THREE.Vector3(1, 0, 1))
+                    .normalize();
+
+                // move the camera to a position distance units way from the center
+                // in whatever direction the camera was from the center already
+                camera.position.copy(direction.multiplyScalar(distance).add(boxCenter));
+
+                // pick some near and far values for the frustum that
+                // will contain the box.
+                camera.near = boxSize / 100;
+                camera.far = boxSize * 100;
+
+                camera.updateProjectionMatrix();
+
+                // point the camera to look at the center of the box
+                camera.lookAt(boxCenter.x, boxCenter.y, boxCenter.z);
+            }
+
+            {
+                const gltfLoader = new GLTFLoader();
+                gltfLoader.load('https://storage.googleapis.com/hyuncello/Hallabong.gltf', (gltf) => {
+                    const root = gltf.scene;
+                    scene.add(root);
+                    model = gltf.scene;
+                    let fileAnimations = gltf.animations;
+
+                    // compute the box that contains all the stuff
+                    // from root and below
+                    const box = new THREE.Box3().setFromObject(root);
+
+                    const boxSize = box.getSize(new THREE.Vector3()).length();
+                    const boxCenter = box.getCenter(new THREE.Vector3());
+
+                    // set the camera to frame the box
+                    frameArea(boxSize * 0.4, boxSize, boxCenter, camera);
+
+                    // update the Trackball controls to handle the new size
+                    controls.maxDistance = boxSize * 7;
+                    controls.target.copy(boxCenter);
+                    controls.update();
+                    scene.add(model);
+
+                    // loaderAnim.remove();
+
+                    mixer = new THREE.AnimationMixer(model);
+
+                    let clips = fileAnimations.filter(val => val.name !== 'ArmatureAction');
+                    possibleAnims = clips.map(val => {
+                        let clip = THREE.AnimationClip.findByName(clips, val.name);
+
+
+
+                        clip = mixer.clipAction(clip);
+                        return clip;
+
+                    });
+                    let idleAnim = THREE.AnimationClip.findByName(fileAnimations, 'ArmatureAction');
+
+
+                    idle = mixer.clipAction(idleAnim);
+                    idle.play();
+                },
+
+                    undefined, // We don't need this function
+                    function (error) {
+                        console.error(error);
+                    });
+
+
+
+            }
+
+            function resizeRendererToDisplaySize(renderer) {
+                const canvas = renderer.domElement;
+                const width = canvas.clientWidth;
+                const height = canvas.clientHeight;
+                const needResize = canvas.width !== width || canvas.height !== height;
+                if (needResize) {
+                    renderer.setSize(width, height, false);
+                }
+                return needResize;
+            }
+
+            function render() {
+                if (resizeRendererToDisplaySize(renderer)) {
+                    const canvas = renderer.domElement;
+                    camera.aspect = canvas.clientWidth / canvas.clientHeight;
+                    camera.updateProjectionMatrix();
+                }
+
+                renderer.render(scene, camera);
+                if (mixer) {
+                    mixer.update(clock.getDelta());
+                }
+                requestAnimationFrame(render);
+            }
+
+            requestAnimationFrame(render);
+
+        }
+
+        main();
+
+
+    </script>
+</body>
+<!-- <script type="text/javascript"
+    src="//dapi.kakao.com/v2/maps/sdk.js?appkey=c862bcec5649b618c14bc197d11d0d6a&libraries=services"></script> -->
+<script type="text/javascript" src="js/modal.js"></script>
+
+</html>

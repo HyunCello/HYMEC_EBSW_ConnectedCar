@@ -1,0 +1,24 @@
+{
+  "id": "com.connected.window2",
+  "version": "1.0.0",
+  "vendor": "My Company",
+  "type": "web",
+  "main": "index.html",
+  "title": "ConnectedWindow2",
+  "icon": "icon.png",
+  "requiredPermissions": [
+    "time",
+    "settings.read",
+    "activities.manage",
+    "activities.callbacks",
+    "notifications",
+    "notifications.manage",
+    "all",
+    "notifications.query",
+    "activities.callbacks",
+    "settings",
+    "configd",
+    "configd.internal",
+    "configd.private"
+  ]
+}
