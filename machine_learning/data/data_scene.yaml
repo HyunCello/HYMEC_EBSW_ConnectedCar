@@ -1,0 +1,8 @@
+names:
+- Bi_Yang_Do
+- Windmill
+- Il_Chul_Bong
+- Kite_Surfing
+nc: 4
+train: ./train.txt
+val: ./val.txt

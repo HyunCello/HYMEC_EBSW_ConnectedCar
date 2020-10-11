@@ -1,0 +1,5 @@
+ice_bag
+duffel_bag
+luggage
+caddy_bag
+backpack
