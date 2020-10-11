@@ -1,0 +1,9 @@
+names:
+- ice_bag
+- duffel_bag
+- luggage
+- caddy_bag
+- backpack
+nc: 5
+train: ./train.txt
+val: ./val.txt
