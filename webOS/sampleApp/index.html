@@ -3,130 +3,103 @@
 
 <head>
     <title>Example Web App</title>
+    <!-- <script>document.documentElement.className = "js"; var supportsCssVars = function () { var e, t = document.createElement("style"); return t.innerHTML = "root: { --tmp-var: bold; }", document.head.appendChild(t), e = !!(window.CSS && window.CSS.supports && window.CSS.supports("font-weight", "var(--tmp-var)")), t.parentNode.removeChild(t), e }; supportsCssVars() || alert("Please view this demo in a modern browser that supports CSS Variables.");</script> -->
+
+    <!-- 직접 지정한 스타일 호출 -->
     <link rel="stylesheet" type="text/css" href="css/style.css">
-    <link rel="stylesheet" type="text/css" href="css/mapstyle.css">
+    <!-- Jquery 호출 -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-
-    <script type="text/javascript" src="js/function.js"></script>
+    <!-- Socket.io 호출 -->
+    <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/socket.io/2.3.1/socket.io.min.js"></script>
+    <script src="https://cdn.socket.io/socket.io-1.0.0.js"></script>
+    <!-- Youtube Player API 호출 -->
     <script src="http://www.youtube.com/player_api"></script>
-    <!-- <script type="text/javascript"
-        src="https://openapi.map.naver.com/openapi/v3/maps.js?ncpClientId=1bn280ccul"></script> -->
-    <script>document.documentElement.className = "js"; var supportsCssVars = function () { var e, t = document.createElement("style"); return t.innerHTML = "root: { --tmp-var: bold; }", document.head.appendChild(t), e = !!(window.CSS && window.CSS.supports && window.CSS.supports("font-weight", "var(--tmp-var)")), t.parentNode.removeChild(t), e }; supportsCssVars() || alert("Please view this demo in a modern browser that supports CSS Variables.");</script>
-
+    <!-- AR용 Three.js 호출 -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r79/three.min.js"></script>
+    <!-- iframe에서 xframe 규약에 따라 보지못하는 페이지 우회하는 JS 호출 -->
     <script type="module" src="https://unpkg.com/x-frame-bypass"></script>
-    <script src="https://unpkg.com/@ungap/custom-elements-builtin"></script>
-
+    <!-- 직접 제작한 JS 호출 -->
+    <script type="text/javascript" src="js/function.js"></script>
+    <script type="text/javascript" src="js/flaskwebsocket.js"></script>
     <!-- <script type="module" src="js/3d.js"></script> -->
+    <script>
+        $(function () {
+            var socket = io('http://192.168.0.10:5000');
+            console.log("Socket connected" + socket.connected);
+
+            socket.on('notification', function (value) {
+                //insert your code here
+            });
+        });
+
+    </script>
 </head>
 
-<script type="text/javascript" src="js/clock.js"></script>
 
 <body>
+    <!-- div로 바인딩 -->
     <div class="mainpage">
-
         <!--#########################                   메뉴                       ##############################-->
-        <div id="menu" style="display:none">
-            <div id="popup_open_btn1" class="parallelogram" style="background-color:rgb(17,17,17)">
-
-                <p>목적지<br>설정</p>
-            </div>
-            <span style="width:0.5%;float: left"> &nbsp</span>
-            <div id="popup_open_btn2" class="parallelogram" style="background-color:rgb(104, 81, 132)">
-                <p>교통상황<br>확인</p>
-
-            </div>
-            <span style="width:0.5%;float: left"> &nbsp</span>
-            <div id="popup_open_btn4" class="parallelogram" style="background-color:rgb(66, 151, 152)">
-                <p>추천테마<br>소개</p>
-            </div>
-
-            <span style="width:0.5%;float: left"> &nbsp</span>
-            <div id="popup_open_btn5" class="parallelogram" style="background-color:rgb(212, 65, 52)">
+        <div id="menu" style="display:default">
+            <div id="popup_open_btn1" onclick="makeiframe('image_feed','my_modal1')" class="parallelogram"
+                style="background-color:rgb(17,17,17)">
                 <p>트렁크<br>확인</p>
             </div>
             <span style="width:0.5%;float: left"> &nbsp</span>
-            <div id="popup_open_btn3" class="parallelogram" style="background-color:rgb(113, 112, 244)">
-                <p>주변<br>
-                    안내</p>
+            <div id="popup_open_btn2" class="parallelogram" style="background-color:rgb(104, 81, 132)">
+                <p>목적지<br>설정</p>
             </div>
-
-
+            <span style="width:0.5%;float: left"> &nbsp</span>
+            <div id="popup_open_btn3" class="parallelogram" style="background-color:rgb(66, 151, 152)">
+                <p>교통상황<br>확인</p>
+            </div>
+            <span style="width:0.5%;float: left"> &nbsp</span>
+            <div id="popup_open_btn4" class="parallelogram" style="background-color:rgb(212, 65, 52)">
+                <p>추천테마<br>소개</p>
+            </div>
+            <span style="width:0.5%;float: left"> &nbsp</span>
+            <div id="popup_open_btn5" onclick="makeiframe('video_feed','my_modal5')" class="parallelogram"
+                style="background-color:rgb(113, 112, 244)">
+                <p>주변<br>안내</p>
+            </div>
         </div>
-        <a id="auctions1"><img class="auctions" src="img/menu.png" onclick="toast()"></a>
+        <!-- 메뉴 버튼 -->
+        <a id="auctions1">
+            <img class="auctions" id="img1" src="img/menu.png">
+            <img id="img2" src="img/profile.png" onclick="request('facerecog')">
+        </a>
+
+        <!-- 비디오 태그로 동영상재생하기 (webOS에서 작동하지 않아 비활성)-->
         <!-- <video id="vid" loop muted>
             <source src="https://storage.googleapis.com/hyuncello/background1.mp4" type="video/mp4">
             browser not supported?
         </video>
         <script type="text/javascript">
             document.getElementById('vid').play();
-
         </script> -->
-        <!--##############################################################################-->
-        <div id="player"></div>
 
-        <script type="text/javascript">
-            var player;
-            function onYouTubePlayerAPIReady() {
-                player = new YT.Player("player", {
-                    width: "100%",
-                    height: "100%",
-                    videoId: "I9PwT-MqEjg",
-                    playerVars: {
-                        'controls': 0,
-                        'showinfo': 0,
-                        'start': 0,
-                        'loop': 1,
-                        'playlist': 'I9PwT-MqEjg'
-                    },
-                    events: {
-                        onReady: onPlayerReady
-                    }
-                });
-            }
-            function onPlayerReady(event) {
-                event.target.mute();
-                event.target.playVideo();
-            }
+        <!-- 유튜브 영상으로 보여지는 배경 -->
+        <div id="bgplayer"></div>
 
-        </script>
-
-        <!--#########################                   모달                       ##############################-->
+        <!-- 모달 -->
         <div id="my_modal1" class="modal">
-            <iframe src="https://ebsw-662b4.web.app/"></iframe>
+            <div id="in_my_modal1" style="width:20%">
+            </div>
         </div>
         <div id="my_modal2" class="modal">
-            <iframe src="https://ebsw2-28861.web.app"></iframe>
+            <iframe src="https://ebsw-662b4.web.app/"></iframe>
         </div>
         <div id="my_modal3" class="modal">
-
-
-            <!-- <div id="image">
-
-            </div>
-            <div class="AR">
+            <iframe src="https://ebsw2-28861.web.app"></iframe>
+        </div>
+        <div id="my_modal4" class="modal">
+            <iframe is="x-frame-bypass" src="https://www.myrealtrip.com/cities?key_name=Jeju&q=제주도"></iframe>
+        </div>
+        <div id="my_modal5" class="modal">
+            <!-- <div class="AR">
                 <canvas id="c" id="js-loader"></canvas>
             </div> -->
         </div>
-        <div id="my_modal4" class="modal">
-            <!-- <div>
-                <object type="text/html" data="http://www.myrealtrip.com/cities?key_name=Jeju&q=제주도" width="800px"
-                    height="600px" style="overflow:auto;border:5px ridge blue">
-                </object>
-            </div> -->
-            <!-- <object width="500" height="500" data="https://ebsw3-e884a.web.app"></object> -->
-
-            <!-- <embed type="text/html" src="https://ebsw3-e884a.web.app"> -->
-            <!-- <iframe src="https://ebsw3-e884a.web.app"></iframe> -->
-            <iframe is="x-frame-bypass" src="https://www.myrealtrip.com/cities?key_name=Jeju&q=제주도"></iframe>
-            <!-- <div class="recommand">자연을 보고 싶어요</div>
-            <div class="recommand">박물관을 좋아해요</div>
-            <div class="recommand">액티비티를 하고싶어요</div> -->
-        </div>
-        <div id="my_modal5" class="modal">
-            CV 머신러닝
-        </div>
-
     </div>
 
     <!--#########################         LS2 API            ##############################-->
@@ -153,12 +126,11 @@
 
             bridge.call(createtoast, subparams);
 
-
         }
         console.log(document.domain)
     </script>
 
-    <!--#########################          module이 임포트가 안되어서 어쩔 수 없이 내부 스크립트로 저장               ##############################-->
+    <!--#########################          module이 임포트가 안되어서 어쩔 수 없이 내부 스크립트로 저장 = webOS의 문제              ##############################-->
     <script type="module">
 
         import * as THREE from 'https://threejsfundamentals.org/threejs/resources/threejs/r119/build/three.module.js';
@@ -352,6 +324,7 @@
 
 
     </script>
+
 </body>
 <!-- <script type="text/javascript"
     src="//dapi.kakao.com/v2/maps/sdk.js?appkey=c862bcec5649b618c14bc197d11d0d6a&libraries=services"></script> -->

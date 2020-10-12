@@ -37,12 +37,45 @@ function modal(id) {
     msTransform: "translate(-50%, -50%)",
     webkitTransform: "translate(-50%, -50%)",
   });
+
   document.getElementById("bg").addEventListener("click", function () {
     bg.remove();
     modal.style.display = "none";
+    if (modal_is == 1) {
+      var iframe1 = document.getElementById("my_modal1");
+      var iniframe1 = document.getElementById("in_my_modal1")
+      $('#iframe1').children('iframe1').last().remove();
+      iframe1.removeChild(iframe1.lastChild);
+      while (iniframe1.hasChildNodes()) { iniframe1.removeChild(iniframe1.firstChild); }
+    }
+    else if (modal_is == 5) {
+      var iframe5 = document.getElementById("my_modal5");
+      iframe5.removeChild(iframe5.childNodes[3]);
+    }
+    console.log("wpkf");
+
   });
+
 }
 
+function closemodal() {
+  bg = document.getElementById("bg");
+  bg.remove();
+  var modal = document.getElementById("my_modal5");
+  modal.style.display = "none";
+  if (modal_is == 1) {
+    var iframe1 = document.getElementById("my_modal1");
+    var iniframe1 = document.getElementById("in_my_modal1")
+    $('#iframe1').children('iframe1').last().remove();
+    iframe1.removeChild(iframe1.lastChild);
+    while (iniframe1.hasChildNodes()) { iniframe1.removeChild(iniframe1.firstChild); }
+  }
+  else if (modal_is == 5) {
+    var iframe5 = document.getElementById("my_modal5");
+    iframe5.removeChild(iframe5.childNodes[3]);
+  }
+  console.log("wpkf");
+}
 // Element 에 style 한번에 오브젝트로 설정하는 함수 추가
 Element.prototype.setStyle = function (styles) {
   for (var k in styles) this.style[k] = styles[k];
@@ -55,8 +88,6 @@ document
     // 모달창 띄우기
     modal("my_modal1");
     $("#menu").slideToggle(500, function () { });
-
-    console.log("지도 오픈~");
 
     setTimeout(function () {
       window.dispatchEvent(new Event("resize"));
@@ -87,6 +118,9 @@ document
     // 모달창 띄우기
     modal("my_modal4");
     $("#menu").slideToggle(500, function () { });
+    setTimeout(function () {
+      window.dispatchEvent(new Event("reload"));
+    }, 100);
   });
 
 document

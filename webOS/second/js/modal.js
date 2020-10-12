@@ -2,6 +2,8 @@ function modal(id) {
   var zIndex = 9999;
   var modal = document.getElementById(id);
 
+
+
   // 모달 div 뒤에 희끄무레한 레이어
   var bg = document.createElement("div");
   bg.setAttribute("id", "bg");
@@ -40,6 +42,20 @@ function modal(id) {
   document.getElementById("bg").addEventListener("click", function () {
     bg.remove();
     modal.style.display = "none";
+    if (modal_is == 1) {
+      var iframe1 = document.getElementById("my_modal1");
+      var iniframe1 = document.getElementById("in_my_modal1")
+      $('#iframe1').children('iframe1').last().remove();
+      iframe1.removeChild(iframe1.lastChild);
+      // while (iniframe1.hasChildNodes()) { iniframe1.removeChild(iniframe1.firstChild); }
+    }
+    else if (modal_is == 5) {
+      var iframe5 = document.getElementById("my_modal5");
+      iframe5.removeChild(iframe5.childNodes[3]);
+    }
+
+    console.log("wpkf");
+
   });
 }
 
@@ -55,8 +71,6 @@ document
     // 모달창 띄우기
     modal("my_modal1");
     $("#menu").slideToggle(500, function () { });
-
-    console.log("지도 오픈~");
 
     setTimeout(function () {
       window.dispatchEvent(new Event("resize"));
@@ -87,6 +101,9 @@ document
     // 모달창 띄우기
     modal("my_modal4");
     $("#menu").slideToggle(500, function () { });
+    setTimeout(function () {
+      window.dispatchEvent(new Event("reload"));
+    }, 100);
   });
 
 document

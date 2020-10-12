@@ -56,10 +56,11 @@ h1 {
   top: -10%;
 }
 
-#auctions1 img {
-  float: right;
+#auctions1 #img1 {
+  float: left;
   position: absolute;
-  left: 92.5%;
+  left: 8.5%;
+  top:2%;
   overflow: hidden;
   align-items: center;
   justify-content: right;
@@ -68,7 +69,46 @@ h1 {
   text-align: center;
   z-index: 1;
 }
-
+#auctions1 #img2 {
+  float: left;
+  position: absolute;
+  top:2%;
+  left: 16.5%;
+  overflow: hidden;
+  align-items: center;
+  justify-content: right;
+  width: 7.6%;
+  height: 14%;
+  text-align: center;
+  z-index: 1;
+}
+#auctions1 p {
+  float: left;
+  position: absolute;
+  top:3.2%;
+  left: 24%;
+  overflow: hidden;
+  align-items: center;
+  justify-content: right;
+  font-size: 3.5vw;
+  background: #696969;
+  text-align: center; 
+  color: white;
+  font-weight: bolder;
+  z-index: 1;
+}
+#auctions1 #img3 {
+  float: right;
+  position: absolute;
+  left: 73.8%;
+  overflow: hidden;
+  align-items: center;
+  justify-content: right;
+  width: 7%;
+  height: 14%;
+  text-align: center;
+  z-index: 1;
+}
 /*  ////////////////////////////////////////////////////////////  */
 
 #video {
@@ -84,6 +124,8 @@ h1 {
 /*  ////////////////////////////////////////////////////////////  */
 .modal {
   font-size: 4.5em;
+  width: 7%;
+
 }
 
 #my_modal1 {
@@ -95,13 +137,26 @@ h1 {
   border: 1px solid #888;
   border-radius: 0.2em;
 }
-
+#my_modal1 img{
+  position: absolute;
+  width:50%;
+  height: 84%;
+  
+}
 #my_modal1 .modal_close_btn {
   position: absolute;
   top: 10px;
   right: 10px;
 }
-
+#my_modal1 div{
+  float: right;
+  position:absolute;
+  right:10%;
+  display: block;
+}
+#in_my_modal1 a {
+display:block;
+}
 #my_modal2 {
   display: none;
   width: 87%;
@@ -167,6 +222,8 @@ h1 {
   right: 10px;
 }
 
+
+/*    //////////////////////////////////////////////////////////////////     */
 .btn_mylct {
   z-index: 100;
   overflow: hidden;
@@ -220,7 +277,6 @@ iframe{
   margin-bottom : 0.2em;
 }
 
-
 .AR {
   width: 600px;
   height: 1300px;
@@ -232,13 +288,10 @@ iframe{
 }
 
 #c{
-  
   width: 100%;
   height: 100%;
   z-index:1000;
 }
-
-
 
 @media (max-width: 700px) {
   .mainpage {
