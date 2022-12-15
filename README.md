@@ -12,7 +12,7 @@ Make **Connected Window** to get information happily
 
 
 
-## Scinario
+## Scenario
 
 [답사](https://www.notion.so/hyuncello/5766916165ca437497203504cc41a0ee)
 
